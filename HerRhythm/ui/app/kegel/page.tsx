@@ -9,6 +9,8 @@ import CheckInAction from "@/components/CheckInAction";
 import PageWalletBar from "@/components/PageWalletBar";
 import { CHECKIN_CONTRACT_ADDRESS } from "@/contracts/checkinConfig";
 import { checkinAbi } from "@/contracts/checkinAbi";
+import MusicFloatingToggle from "@/components/MusicFloatingToggle";
+import { useBackgroundAudio } from "@/components/BackgroundAudioProvider";
 
 type Phase = "Engage" | "Hold" | "Release";
 type SessionState = "idle" | "active" | "paused" | "complete";
@@ -190,6 +192,7 @@ function PostureIcon({
 export default function KegelPage() {
   const router = useRouter();
   const { address } = useAccount();
+  useBackgroundAudio();
   const dailyWhisper = getDailyWhisper();
 
   const [sessionState, setSessionState] = useState<SessionState>("idle");
@@ -497,6 +500,7 @@ export default function KegelPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(236,240,233,0.96),rgba(245,242,238,0.98)_40%,rgba(239,236,232,1)_100%)] text-[#576158]">
       <PageWalletBar />
+      <MusicFloatingToggle track="home" />
 
       <section className="relative mx-auto flex min-h-screen w-full max-w-[1560px] flex-col px-8 py-5 md:px-12 md:py-6 lg:px-16 xl:px-20">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">

@@ -9,6 +9,8 @@ import CheckInAction from "@/components/CheckInAction";
 import PageWalletBar from "@/components/PageWalletBar";
 import { CHECKIN_CONTRACT_ADDRESS } from "@/contracts/checkinConfig";
 import { checkinAbi } from "@/contracts/checkinAbi";
+import MusicFloatingToggle from "@/components/MusicFloatingToggle";
+import { useBackgroundAudio } from "@/components/BackgroundAudioProvider";
 
 type Phase = "Inhale" | "Hold" | "Exhale";
 type SessionState = "idle" | "active" | "paused" | "complete";
@@ -47,6 +49,7 @@ const PHASES = [
 export default function BreathingPage() {
   const router = useRouter();
   const { address, isConnected } = useAccount();
+  const { enabled } = useBackgroundAudio();
   const dailyWhisper = getDailyWhisper();
 
   const [sessionState, setSessionState] = useState<SessionState>("idle");
@@ -361,6 +364,7 @@ export default function BreathingPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(232,239,230,0.94),rgba(245,241,235,0.97)_36%,rgba(237,244,234,1)_100%)] text-[#33413a]">
       <PageWalletBar />
+      <MusicFloatingToggle track="home" />
 
       <section className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-6 md:px-10 md:py-7 lg:px-16">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
