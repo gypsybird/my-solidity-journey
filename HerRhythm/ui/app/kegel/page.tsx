@@ -663,22 +663,23 @@ export default function KegelPage() {
                       </p>
 
                       <p className="text-[15px] font-normal text-[#8d9790] md:text-[18px]">
-                        身体会慢慢记住这种细微而稳定的支持感
+                        身体会慢慢记住这种支持感
                       </p>
                     </div>
                   </div>
                 )}
+
               </div>
             </div>
 
             {sessionState === "complete" && (
               <div className="mt-4 flex flex-col items-center gap-3">
                 <div className="max-w-[340px] text-center">
-                  <p className="text-[18px] leading-8 text-[#6f786f] md:text-[20px]">
-                    {dailyWhisper.text}
-                  </p>
-                  <p className="mt-2 text-[11px] uppercase tracking-[0.22em] text-[#a1aa9f]">
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-[#a1aa9f]">
                     {dailyWhisper.label}
+                  </p>
+                  <p className="mt-2 text-[18px] leading-8 text-[#6f786f] md:text-[20px]">
+                    {dailyWhisper.text}
                   </p>
                 </div>
 
@@ -732,12 +733,16 @@ export default function KegelPage() {
                 </button>
               )}
 
-              <button
-                onClick={reset}
-                className="rounded-full border border-white/34 bg-white/72 px-7 py-3 text-sm tracking-[0.03em] text-[#7a827a] shadow-[0_10px_22px_rgba(122,132,122,0.07),inset_0_1px_0_rgba(255,255,255,0.34)] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:scale-[1.018] hover:bg-white/88 hover:shadow-[0_16px_28px_rgba(122,132,122,0.10)] active:scale-[0.988]"
-              >
-                重置
-              </button>
+              {sessionState === "paused" && (
+                <button
+                  onClick={reset}
+                  className="rounded-full border border-white/34 bg-white/72 px-7 py-3 text-sm tracking-[0.03em] text-[#7a827a] shadow-[0_10px_22px_rgba(122,132,122,0.07),inset_0_1px_0_rgba(255,255,255,0.34)] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:scale-[1.018] hover:bg-white/88 hover:shadow-[0_16px_28px_rgba(122,132,122,0.10)] active:scale-[0.988]"
+               >
+                  重置
+                </button>
+              )}
+
+
             </div>
           </div>
 

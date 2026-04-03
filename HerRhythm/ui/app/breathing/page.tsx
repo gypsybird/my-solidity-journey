@@ -489,11 +489,12 @@ export default function BreathingPage() {
                     </p>
 
                     <p className="text-[15px] font-normal text-[#8d9790] md:text-[18px]">
-                      给自己一点安静 🌿
+                      给自己一点安静
                     </p>
                   </div>
                 </div>
               )}
+
             </div>
           </div>
         </div>
@@ -523,11 +524,11 @@ export default function BreathingPage() {
         {sessionState === "complete" && (
           <div className="relative z-10 mt-4 flex flex-col items-center gap-3">
             <div className="max-w-[340px] text-center">
-              <p className="text-[18px] leading-8 text-[#6f786f] md:text-[20px]">
-                {dailyWhisper.text}
-              </p>
-              <p className="mt-2 text-[11px] uppercase tracking-[0.22em] text-[#a1aa9f]">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-[#a1aa9f]">
                 {dailyWhisper.label}
+              </p>
+              <p className="mt-2 text-[18px] leading-8 text-[#6f786f] md:text-[20px]">
+                {dailyWhisper.text}
               </p>
             </div>
 
@@ -581,12 +582,15 @@ export default function BreathingPage() {
             </button>
           )}
 
-          <button
-            onClick={reset}
-            className="rounded-full border border-white/34 bg-white/68 px-7 py-3 text-sm tracking-[0.03em] text-[#6d7a72] shadow-[0_10px_22px_rgba(120,120,110,0.07),inset_0_1px_0_rgba(255,255,255,0.34)] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:scale-[1.018] hover:bg-white/86 hover:shadow-[0_16px_28px_rgba(120,120,110,0.10)] active:scale-[0.988]"
-          >
-            重置
-          </button>
+          {sessionState === "paused" && (
+            <button
+              onClick={reset}
+              className="rounded-full border border-white/34 bg-white/68 px-7 py-3 text-sm tracking-[0.03em] text-[#6d7a72] shadow-[0_10px_22px_rgba(120,120,110,0.07),inset_0_1px_0_rgba(255,255,255,0.34)] backdrop-blur-md transition-all duration-500 hover:-translate-y-0.5 hover:scale-[1.018] hover:bg-white/86 hover:shadow-[0_16px_28px_rgba(120,120,110,0.10)] active:scale-[0.988]"
+            >
+              重置
+            </button>
+          )}
+
         </div>
 
         <style jsx global>{`

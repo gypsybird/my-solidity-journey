@@ -223,10 +223,6 @@ export default function CheckInPage() {
           </Link>
         </div>
 
-        <div className="mb-4 flex justify-center">
-          <WalletConnectButton />
-        </div>
-
         {!isConnected && (
           <div className="mb-1 text-center text-sm text-[#9b9c95]">
             连接钱包后即可查看今日打卡状态
