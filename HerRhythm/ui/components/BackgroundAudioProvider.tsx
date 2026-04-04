@@ -55,7 +55,7 @@ export function BackgroundAudioProvider({
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // 首页默认尝试自动播放
-  const [enabled, setEnabled] = useState(true);
+  const [enabled, setEnabled] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<TrackName | null>(null);
 
