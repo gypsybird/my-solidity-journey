@@ -54,7 +54,7 @@ export function BackgroundAudioProvider({
   const pathname = usePathname();
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // 首页默认尝试自动播放
+  // 首页默认尝试自动播放000
   const [enabled, setEnabled] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTrack, setCurrentTrack] = useState<TrackName | null>(null);
